@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function DeviceForm() {
+export default function DeviceForm() {
   // створюємо state
   const [title, setTitle] = useState('');
   const [brand, setBrand] = useState('');
