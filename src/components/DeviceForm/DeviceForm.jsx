@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function DeviceForm() {
+export default function DeviceForm({ onAddDevice }) {
   // створюємо state
   const [title, setTitle] = useState('');
   const [brand, setBrand] = useState('');
@@ -9,42 +9,57 @@ export default function DeviceForm() {
 
   //  Створюємо метод для зміни стейту
   const onInputChangeValue = event => {
-    // коли звертаємось до поля об'єкту використовуємо [] для того щоб написати вираз який підставить назву властивості об'єкта
-    // event.target.name - куди записувати?
-    // event.target.value - що записувати?
-    // {key:value}
-
     // через Switch-case проходимось по нашим стейтам та підставляємо той котрий відповідає умові
-    this.setState({ [event.target.name]: event.target.value });
 
-    // патерн контрольовані форми
+    const { name, value } = event.target;
+    // деструкторизуємо name та value з event.taget
+    switch (name) {
+      case 'title':
+        setTitle(value);
+        break;
+      case 'brand':
+        setBrand(value);
+        break;
+      case 'price':
+        setPrice(value);
+        break;
+      case 'type':
+        setType(value);
+        break;
+      default:
+        break;
+    }
   };
 
-  onFormSubmit = event => {
+  const onFormSubmit = event => {
     event.preventDefault();
     const formData = {
-      title: this.state.title,
-      brand: this.state.brand,
-      price: this.state.price,
-      type: this.state.type,
+      // якщо ключ та значення співпадають можемо друге значення не записувати
+      // title: title,
+      // brand: brand,
+      // price: price,
+      // type: type,
+      title,
+      brand,
+      price,
+      type,
     };
-    // прокидуємо наш пропс з класового компоненту в метод
-    this.props.onAddDevice(formData);
+
+    // оскільки очікуємо пропс onAddDevice, його потрібно прийняти у батьківському компоненті
+    onAddDevice(formData);
     // reset form, скидуємо значення в state до початкового
-    this.setState({
-      title: '',
-      brand: '',
-      price: '',
-      type: '',
-    });
+
+    setTitle('');
+    setBrand('');
+    setPrice('');
+    setType('');
   };
 
-  // render() {
   //   // Деструкторизуємо наші пропси зі стейту
   //   const { title, brand, price, type } = this.state;
   return (
     <div>
-      <form onSubmit={this.onFormSubmit}>
+      <form onSubmit={onFormSubmit}>
         <label>
           <p>Title:</p>
           <input
