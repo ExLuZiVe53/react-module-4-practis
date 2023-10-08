@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-module-2-practis/static/css/main.d5839c9a.css",
+    "main.js": "/react-module-2-practis/static/js/main.e903eac4.js",
+    "static/media/devicePhoto.jpg": "/react-module-2-practis/static/media/devicePhoto.cea396f700a734b40928.jpg",
+    "index.html": "/react-module-2-practis/index.html",
+    "main.d5839c9a.css.map": "/react-module-2-practis/static/css/main.d5839c9a.css.map",
+    "main.e903eac4.js.map": "/react-module-2-practis/static/js/main.e903eac4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5839c9a.css",
+    "static/js/main.e903eac4.js"
+  ]
+}
