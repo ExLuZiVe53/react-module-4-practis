@@ -8,12 +8,15 @@ export default function DeviceForm() {
   const [type, setType] = useState('');
 
   //  Створюємо метод для зміни стейту
-  onInputChangeValue = event => {
+  const onInputChangeValue = event => {
     // коли звертаємось до поля об'єкту використовуємо [] для того щоб написати вираз який підставить назву властивості об'єкта
     // event.target.name - куди записувати?
     // event.target.value - що записувати?
     // {key:value}
+
+    // через Switch-case проходимось по нашим стейтам та підставляємо той котрий відповідає умові
     this.setState({ [event.target.name]: event.target.value });
+
     // патерн контрольовані форми
   };
 
