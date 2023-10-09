@@ -16,7 +16,7 @@ const devicesData = [
   },
   {
     id: 2,
-    title: 'leptop',
+    title: 'laptop',
     brand: 'Dell',
     price: '1299.99',
     type: 'Computer',
@@ -128,7 +128,9 @@ export function App() {
     setFilter(event.target.value);
   };
 
-  const toogleFavorite = id => {};
+  const toogleFavorite = id => {
+    console.log(id);
+  };
 
   {
     const filteredDevices = devices.filter(device =>
@@ -150,7 +152,11 @@ export function App() {
         </label>
         {/* за допомогою {} у js пишемо jsx-файли*/}
         {/*Після імпорту передаємо пропси */}
-        <DeviceList devices={filteredDevices} onDeleteDevice={onDeleteDevice} />
+        <DeviceList
+          devices={filteredDevices}
+          onDeleteDevice={onDeleteDevice}
+          toogleFavorite={toogleFavorite}
+        />
       </div>
     );
   }

@@ -12,6 +12,7 @@ const DeviceCard = ({
   coverImage,
   onDeleteDevice,
   toogleFavorite,
+  isFavorite,
 }) => {
   return (
     <StyledDeviceCard>
@@ -25,8 +26,8 @@ const DeviceCard = ({
       <button type="button" onClick={() => onDeleteDevice(id)}>
         Delete
       </button>
-      <button type="button" onClick={toogleFavorite}>
-        <FcLike className="liked icon-like" />
+      <button type="button" onClick={toogleFavorite(id)}>
+        <FcLike className={`${isFavorite} liked icon-like`} />
       </button>
     </StyledDeviceCard>
   );
