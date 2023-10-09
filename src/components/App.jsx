@@ -129,7 +129,17 @@ export function App() {
   };
 
   const toogleFavorite = id => {
-    console.log(id);
+    setDevices(
+      devices.map(device => {
+        if (device.id === id) {
+          return {
+            ...device,
+            isFavorite: !device.isFavorite,
+          };
+        }
+        return device;
+      })
+    );
   };
 
   {
