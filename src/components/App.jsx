@@ -16,7 +16,7 @@ const devicesData = [
   },
   {
     id: 2,
-    title: 'laptop',
+    title: 'Laptop',
     brand: 'Dell',
     price: '1299.99',
     type: 'Computer',
