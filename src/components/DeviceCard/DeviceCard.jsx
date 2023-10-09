@@ -1,6 +1,8 @@
-import css from './DeviceCard.module.css';
+import { FcLike } from 'react-icons/fc';
+import { StyledDeviceCard } from './DeviceCard.styled';
 // створюємо розмітку
 // приймаємо пропси у вигляді об'єкту для рендеру розмітки у DeviceCard
+
 const DeviceCard = ({
   id,
   title,
@@ -9,11 +11,12 @@ const DeviceCard = ({
   type,
   coverImage,
   onDeleteDevice,
+  toogleFavorite,
 }) => {
   return (
-    <li className={css.item}>
+    <StyledDeviceCard>
       {/* за допомогою {вставляємо наші пропси} */}
-      <img src={coverImage} width={300} alt={title} />
+      <img className="image" src={coverImage} alt={title} />
       <h3>{title}</h3>
       <p>{brand}</p>
       <p>{type}</p>
@@ -22,7 +25,10 @@ const DeviceCard = ({
       <button type="button" onClick={() => onDeleteDevice(id)}>
         Delete
       </button>
-    </li>
+      <button type="button" onClick={toogleFavorite}>
+        <FcLike className="liked icon-like" />
+      </button>
+    </StyledDeviceCard>
   );
 };
 

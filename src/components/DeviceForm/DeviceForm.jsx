@@ -67,7 +67,7 @@ export default function DeviceForm({ onAddDevice }) {
             //   значення ім'я name має співпадати з нашим стейтом
             name="title"
             value={title}
-            onChange={this.onInputChangeValue}
+            onChange={onInputChangeValue}
             required
           />
         </label>
@@ -77,7 +77,7 @@ export default function DeviceForm({ onAddDevice }) {
             type="text"
             name="brand"
             value={brand}
-            onChange={this.onInputChangeValue}
+            onChange={onInputChangeValue}
             required
           />
         </label>
@@ -87,7 +87,7 @@ export default function DeviceForm({ onAddDevice }) {
             type="text"
             name="price"
             value={price}
-            onChange={this.onInputChangeValue}
+            onChange={onInputChangeValue}
             required
           />
         </label>
@@ -97,7 +97,7 @@ export default function DeviceForm({ onAddDevice }) {
             type="text"
             name="type"
             value={type}
-            onChange={this.onInputChangeValue}
+            onChange={onInputChangeValue}
             required
           />
         </label>
