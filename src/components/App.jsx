@@ -3,6 +3,7 @@ import imgDevice from 'assets/images/devicePhoto.jpg';
 import { useState } from 'react';
 import DeviceList from './DeviceList/DeviceList';
 import DeviceForm from './DeviceForm/DeviceForm';
+import Modal from './Modal/Modal';
 
 const devicesData = [
   {
@@ -102,6 +103,15 @@ export function App() {
 
   const [devices, setDevices] = useState(devicesData);
   const [filter, setFilter] = useState('');
+  const [modal, setModal] = useState({ isOpen: false, modalData: null });
+
+  const onOpenModal = modalData => {
+    setModal({ isOpen: true, modalData: modalData });
+  };
+
+  const onCloseModal = () => {
+    setModal({ isOpen: false, modalData: null });
+  };
 
   const onDeleteDevice = id => {
     setDevices(devices.filter(device => device.id !== id));
@@ -146,6 +156,11 @@ export function App() {
     const filteredDevices = devices.filter(device =>
       device.title.toLowerCase().includes(filter.toLowerCase().trim())
     );
+
+    const sortedFilterdDevices = [...filteredDevices].sort(
+      (a, b) => b.isFavorite - a.isFavorite
+    );
+
     return (
       <div>
         <h1>Device store</h1>
@@ -163,10 +178,14 @@ export function App() {
         {/* за допомогою {} у js пишемо jsx-файли*/}
         {/*Після імпорту передаємо пропси */}
         <DeviceList
-          devices={filteredDevices}
+          onOpenModal={onOpenModal}
+          devices={sortedFilterdDevices}
           onDeleteDevice={onDeleteDevice}
           toogleFavorite={toogleFavorite}
         />
+        {modal.isOpen && (
+          <Modal onCloseModal={onCloseModal} modalData={modal.modalData} />
+        )}
       </div>
     );
   }

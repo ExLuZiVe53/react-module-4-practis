@@ -3,7 +3,12 @@ import DeviceCard from 'components/DeviceCard/DeviceCard';
 import css from './DeviceList.module.css';
 
 // Передаємо пропсами на верхній рівень компоненту
-const DeviceList = ({ devices, onDeleteDevice, toogleFavorite }) => {
+const DeviceList = ({
+  devices,
+  onDeleteDevice,
+  toogleFavorite,
+  onOpenModal,
+}) => {
   return (
     <ul className={css.cardList}>
       {devices.map(
@@ -24,6 +29,7 @@ const DeviceList = ({ devices, onDeleteDevice, toogleFavorite }) => {
             onDeleteDevice={onDeleteDevice}
             toogleFavorite={toogleFavorite}
             isFavorite={isFavorite}
+            onOpenModal={onOpenModal}
           />
         )
       )}

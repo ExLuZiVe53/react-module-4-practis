@@ -13,6 +13,7 @@ const DeviceCard = ({
   onDeleteDevice,
   toogleFavorite,
   isFavorite,
+  onOpenModal,
 }) => {
   return (
     <StyledDeviceCard>
@@ -29,6 +30,9 @@ const DeviceCard = ({
       <button type="button" onClick={() => toogleFavorite(id)}>
         {/* onClick={()=>toogleFavorite пишемо через замикання, бо якщо без підніметься в App функцію event. А нам потрібно саме id*/}
         <FcLike className={`icon-like ${isFavorite ? 'liked' : ''}`} />
+      </button>
+      <button type="button" onClick={() => onOpenModal(title)}>
+        Click to see the details
       </button>
     </StyledDeviceCard>
   );
